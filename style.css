@@ -1,0 +1,163 @@
+:root {
+  --primary: #635bff;
+  --background: #0b1020;
+  --surface: #1b263b;
+  --text: #f1f5f9;
+  --muted: #a8b4c8;
+  --border: #344155;
+  --radius: 16px;
+  --space: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  padding: 32px 6%;
+  background: linear-gradient(135deg, #172554, #312e81);
+}
+
+header h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+header p {
+  color: #dbeafe;
+  margin-bottom: 0;
+}
+
+main {
+  width: min(1100px, 92%);
+  margin: 32px auto;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: var(--space);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  color: var(--text);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+}
+
+input:focus,
+select:focus,
+button:focus-visible {
+  outline: 3px solid #a5b4fc;
+  outline-offset: 3px;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card {
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow-wrap: anywhere;
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  margin-top: 0;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  color: #ddd6fe;
+  background: #312e81;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+button {
+  display: block;
+  margin: 24px auto;
+  padding: 12px 24px;
+  color: white;
+  background: var(--primary);
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+}
+
+button:hover {
+  filter: brightness(1.15);
+}
+
+#status {
+  color: var(--muted);
+  margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+  .posts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 24px 5%;
+  }
+
+  main {
+    width: 90%;
+  }
+
+  .posts {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
