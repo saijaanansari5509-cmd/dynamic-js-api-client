@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Data Explorer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Dynamic Data Explorer</h1>
+    <p>Search, filter and explore live data</p>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="Data controls">
+      <label for="search">Search posts</label>
+      <input id="search" type="search" placeholder="Search by title...">
+
+      <label for="category">Filter by category</label>
+      <select id="category">
+        <option value="all">All categories</option>
+        <option value="1">Category 1</option>
+        <option value="2">Category 2</option>
+        <option value="3">Category 3</option>
+        <option value="4">Category 4</option>
+        <option value="5">Category 5</option>
+      </select>
+
+      <label for="sort">Sort by</label>
+      <select id="sort">
+        <option value="asc">Title A–Z</option>
+        <option value="desc">Title Z–A</option>
+      </select>
+    </section>
+
+    <p id="status" role="status" aria-live="polite">Loading posts...</p>
+    <section id="posts" class="posts" aria-label="Posts"></section>
+    <button id="loadMore" type="button" hidden>Load more</button>
+  </main>
+
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
